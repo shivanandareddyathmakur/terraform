@@ -1,5 +1,5 @@
 resource "aws_route53_record" "roboshop" {
-    count = 4
+    count = length(var.instances)
     zone_id = var.zone_id
     name    = "${var.instances[count.index]}.${var.domain_name}"
     type    = "A"
@@ -8,4 +8,15 @@ resource "aws_route53_record" "roboshop" {
     allow_overwrite = true 
 
 }
+
+# resource "aws_route53_record" "frontend" {
+#     count = 
+#     zone_id = var.zone_id
+#     name    = 
+#     type    = "A"
+#     ttl     = 1
+#     records = [.public_ip]
+#     allow_overwrite = true 
+
+# }
 

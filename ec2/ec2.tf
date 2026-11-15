@@ -4,8 +4,9 @@ resource "aws_instance" "terraform" {
         vpc_security_group_ids = [aws_security_group.allow_all.id]
 
         tags = {
-            Name = "terraform"
+            Name = "terraform-1"
             terraform = "true"
+            project = "roboshop"
         }
 }
 
